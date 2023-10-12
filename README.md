@@ -1,11 +1,11 @@
-![](https://github.com/roahmlab/armour-dev/blob/main/assets/armour_logo.png?raw=true)
+![](https://github.com/roahmlab/armour/blob/main/assets/armour_logo.png?raw=true)
 
 # Autonomous Robust Manipulation via Optimization with Uncertainty-aware Reachability
 **Authors:** Jonathan Michaux (jmichaux@umich.edu), Patrick Holmes (pdholmes@umich.edu), Bohao Zhang (jimzhang@umich.edu), Che Chen (cctom@umich.edu), Baiyue Wang (baiyuew@umich.edu), Shrey Sahgal (shreyps@umich.edu), Tiancheng Zhang (zhangtc@umich.edu), Sidhartha Dey (sid.dey@agilityrobotics.com), Shreyas Kousik (skousik@gatech.edu), and Ram Vasudevan (ramv@umich.edu). 
 
 - This work is supported by the Ford Motor Company via the Ford-UM Alliance under award N022977, National Science Foundation Career Award 1751093 and by the Office of Naval Research under Award Number N00014-18-1-2575.
 - `ARMOUR` was developed in [Robotics and Optimization for Analysis of Human Motion (ROAHM) Lab](http://www.roahmlab.com/) at University of Michigan - Ann Arbor.
-- Please check out our [project page](https://roahmlab.github.io/armour-dev/)!
+- Please check out our [project page](https://roahmlab.github.io/armour/)!
 
 ## Introduction
 Robotic manipulators have the potential to assist humans in a wide variety of collaborative settings, such as manufacturing, package delivery, and in-home care.
@@ -16,7 +16,7 @@ In this context, safety means avoiding collisions while obeying joint position, 
 To address the safety challenge, this paper proposes **Autonomous Robust Manipulation via Optimization with Uncertainty-aware Reachability**, a method for guaranteed-safe, real-time manipulator motion planning and control.
 An overview of this method is given in figure below.
 
-<img height="360" src="/assets/uarmtd_summary_figure.png"/>
+<img height="360" src="/assets/armour_summary_figure.png"/>
 
 <!---<img height="270" src="/assets/armour_method_figure.pdf"/>-->
 
@@ -79,12 +79,12 @@ in MATLAB before you run any other scripts!
 Before running any scripts, make sure you run the initalization scripts successfully and put the Ipopt libraries in the proper path.
 
 All of our results in the paper is developed based on [Kinova Gen3](https://www.kinovarobotics.com/product/gen3-robots). 
-All of the related test scripts are included in [kinova_src](https://github.com/roahmlab/armour-dev/tree/main/kinova_src).
-Check the [README](https://github.com/roahmlab/armour-dev/blob/main/kinova_src/README.md) in that folder for more information.
+All of the related test scripts are included in [kinova_src](https://github.com/roahmlab/armour/tree/main/kinova_src).
+Check the [README](https://github.com/roahmlab/armour/blob/main/kinova_src/README.md) in that folder for more information.
 
 ## License
 
-`ARMOUR` is released under a [GNU license](https://github.com/roahmlab/armour-dev/blob/main/LICENSE). For a list of all code/library dependencies, please check dependency section. For a closed-source version of `ARMOUR` for commercial purpose, please contact the authors. 
+`ARMOUR` is released under a [GNU license](https://github.com/roahmlab/armour/blob/main/LICENSE). For a list of all code/library dependencies, please check dependency section. For a closed-source version of `ARMOUR` for commercial purpose, please contact the authors. 
 
 An overview of the theoretical and implementation details has been published in arxiv. 
 If you use `ARMOUR` in an academic work, please cite using the following BibTex entry:
