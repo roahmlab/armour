@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>ARMOUR: Autonomous Robust Manipulation via Optimization with Uncertainty-aware Reachability</title>
+	<meta name="description" content="ARMOUR: Autonomous Robust Manipulation via Optimization with Uncertainty-aware Reachability">
+    <style>
+        .title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            max-width: 1500px;
+	    margin: 30pt auto 0 auto;
+            color:#303030;
+            font-size:40pt;
+            font-weight:900;
+            letter-spacing:0pt;
+        }
+        .subtitle{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:center;
+            margin-top:8pt;
+            margin-bottom:0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width:700px;
+            color:#303030;
+            font-size:20pt;
+            font-weight:400;
+            letter-spacing:0pt;
+        }
+        .section_title{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align:left;
+            padding-left:25pt;
+            padding-right:25pt;
+            padding-top:25pt;
+            color:#777777;
+            font-size:25pt;
+            font-weight:300;
+            letter-spacing:0pt;
+        }
+        .body{
+	    font-family: Arial, Helvetica, sans-serif;
+            color:#000000;
+            padding-right:25pt;
+            padding-left:25pt;
+            padding-bottom:25pt;
+            text-align:justify;
+            font-size:12pt;
+            font-weight:300;
+            letter-spacing:0pt;
+            line-height: 20pt;
+        }
+        .col{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            float: left;
+            width: 20%;
+            color:#000000;
+            font-size:15pt;
+            font-weight:100;
+            letter-spacing:0pt;
+            height: 25pt;
+        }   
+        .row{
+            margin-left: auto;
+            margin-right: auto;
+            max-width:940px;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .affiliation{
+	    font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color:#000000;
+            font-size:10pt;
+            font-weight:100;
+            letter-spacing:0pt;
+        }
+        .container{
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 5pt;
+            max-width:940px
+        }
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .embed-container iframe,
+        .embed-container object,
+        .embed-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body style="background-color:#ffffff;">
+    <!-- Github Logo on the top-right corner -->
+    <div class="github_logo">
+        <a href="https://github.com/roahmlab/armour-dev" class="github-corner" aria-label="View source on Github">
+            <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#333333; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+                <defs>
+                    <mask id="octomask">
+                        <path fill="white" d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+                        <path fill="black" d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+                        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="black" class="octo-body"></path>
+                    </mask>
+                </defs>
+                <rect class="filler" width="100%" height="100%" mask="url(#octomask)"></rect>
+            </svg>
+        </a>
+        <style>
+        .github-corner:hover .octo-arm {
+            animation:octocat-wave 560ms ease-in-out
+        }
+
+        @keyframes octocat-wave {
+            0%, 100% {
+                transform:rotate(0)
+            }
+
+            20%, 60% {
+                transform:rotate(-25deg)
+            }
+
+            40%, 80% {
+                transform:rotate(10deg)
+            }
+        }
+
+        @media (max-width: 500px) {
+            .github-corner:hover .octo-arm {
+                animation:none
+            }
+
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+        </style>
+    </div>
+    <!-- Author list -->
+    <div class="section">
+        <h1 class="title">Autonomous Robust Manipulation via Optimization with Uncertainty-aware Reachability</h1>
+        <h1 class="subtitle">Can’t Touch This: Real-Time, Safe Motion Planning and Control for Manipulators Under Uncertainty</h1>
+        <!-- Author name-->
+        <div class="row">
+            <div class="col" style="font-weight: 200;">
+                <p>Jonathan Michaux</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Patrick Holmes</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Bohao Zhang</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Che Chen</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Baiyue Wang</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Shrey Sahgal</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Tiancheng Zhang</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Sidhartha Dey</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Shreyas Kousik</p>
+            </div>
+            <div class="col" style="font-weight: 200;">
+                <p>Ram Vasudevan</p>
+            </div>
+        </div>    
+        <!-- Links -->
+        <div class="row" style="margin-left:auto; margin-right:auto; margin-top:10pt;max-width:300px;">
+            <div class="col" style="width: 33%; line-height: 50pt;">
+                <a href="https://arxiv.org/abs/2301.13308">
+                    <img src="./figures/paper.png" height="25pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; line-height: 50pt;">
+                <a href="https://github.com/roahmlab/armour-dev/blob/gh-pages/assets/TRO-Armour-Appendix.pdf">
+                    <img src="./figures/paper.png" height="25pt"/>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; line-height: 50pt;">
+                <a href="https://github.com/roahmlab/armour-dev">
+                    <img src="./figures/github.png" height="25pt" style="opacity:.85"/>
+                </a>
+            </div>
+        </div>
+        <!-- Link name -->
+        <div class="row" style="margin-left:auto; margin-right:auto; max-width:300px; line-height: 10pt;">
+            <div class="col" style="width: 33%; font-size:10pt; font-weight: 500;">
+                <a href="https://arxiv.org/abs/2301.13308">
+                    <p>Paper</p>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; font-size:10pt; font-weight: 500;">
+                <a href="https://github.com/roahmlab/armour-dev/blob/gh-pages/assets/TRO-Armour-Appendix.pdf">
+                    <p>Appendix</p>
+                </a>
+            </div>
+            <div class="col" style="width: 33%; font-size:10pt; font-weight: 500;">
+                <a href="https://github.com/roahmlab/armour-dev">
+                    <p>Code</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overview Video -->
+    <!-- <div class="container" style="padding-top: 0pt;">
+        <h2 class="section_title">Overview Video</h2>
+        <video width="100%" controls>
+            <source src="https://www.youtube.com/watch?v=-WtxxQyoxGo">
+        </video>
+    </div> -->
+    <div class="container" style="background-color:#fff">
+	<iframe src="https://www.youtube.com/embed/-WtxxQyoxGo" style="width:100%; aspect-ratio:16/9;" allow="fullscreen; picture-in-picture" allowfullscreen frameborder="0"></iframe>
+    </div>
+
+    <!-- Introduction -->
+    <div class="container" style="background-color:#f2f2f2">
+        <h2 class="section_title">Introduction</h2>
+        <p class="body">A key challenge to the widespread deployment of robotic manipulators is the need to ensure safety in arbitrary environments while generating new motion plans in real-time.
+            In particular, one must ensure that the manipulator does not collide with obstacles, collide with itself, or exceed its own joint torque limits.
+            This challenge is compounded by the need to account for uncertainty in the mass and inertia of manipulated objects, and potentially the robot itself.
+            The present work addresses this challenge by proposing Autonomous Robust Manipulation via Optimization with Uncertainty-aware Reachability <b>ARMOUR</b>, a provably-safe, receding-horizon trajectory planner and tracking controller framework for serial link manipulators.
+            In particular, this paper makes three contributions.
+            First, a robust, passivity-based controller enables a manipulator to track desired trajectories with bounded error despite uncertain dynamics.
+            Second, a novel variation on the Recursive Newton-Euler Algorithm (RNEA) allows \methodname to compute the set of all possible inputs required to track any trajectory within a continuum of desired trajectories.
+            Third, this paper provides a method to compute the swept volume of the manipulator given a reachable set of states; this enables one to guarantee safety by checking that the swept volume does not intersect with obstacles.
+            The proposed method is compared to state-of-the-art methods and demonstrated on a variety of challenging manipulation examples in simulation, such as maneuvering a heavy dumbbell with uncertain mass around obstacles. </p>
+        <div style="text-align: center;">
+	    <img src="./figures/armour_paper_overview.png", width="900pt">
+        </div>
+	<p class="body"> </p>
+    </div>
+
+    <!-- Method -->
+    <div class="container" style="background-color:#f2f2f2">
+        <h2 class="section_title">Method</h2>
+        <p class="body">A visualization of how the polynomial zonotope trajectory representation is used to construct the polynomial zonotope forward occupancy for a two link arm in 2D. 
+            A desired trajectory for each joint is shown in black in the top two rows.
+            The same desired trajectory is depicted in each column.
+            The planning time horizon is represented as a finite set of polynomial zonotopes (Sec. VIII-A1).
+            In each column, a single time interval is highlighted in the top two rows and the corresponding time instance is highlighted in the visualization in the bottom row. 
+            The top two rows of the first column depict a finite set of polynomial zonotopes generated by uniformly buffering a desired trajectory by the ultimate bound (Lem. 16).
+            The bottom row of the first column depicts the forward occupancy of the robot over this entire set (Lem. 18).
+            The second column depicts a family of desired trajectories that are overapproximated by a finite set of polynomial zonotopes and the corresponding forward occupancy of the robot over this entire set.
+            The third column depicts a family of desired trajectories buffered by the ultimate bound that are overapproximated by a finite set of polynomial zonotopes and the corresponding forward occupancy of the robot over this entire set.
+            The fourth column depicts a subset of the sets illustrated in the third column generated by slicing in a specific trajectory parameter (Sec. VIII-A4). 
+            Note that the desired trajectory always remains within polynomial zonotopes. </p>
+        <div style="text-align: center;">
+            <img src="./figures/armour_2d_reachset.png", width="900pt">
+        </div>
+    </div>
+
+    <!-- Results -->
+    <style>
+        /* Style for the first video line container */
+        .video-line1 {
+            display: flex; /* Use flexbox to horizontally align the videos */
+            justify-content: center; /* Center videos horizontally within the container */
+            margin-bottom: 50px; /* Add some spacing between the video lines */
+        }
+
+        /* Style for the second video line container */
+        .video-line2 {
+            display: flex; /* Use flexbox to horizontally align the videos */
+            justify-content: center; /* Center videos horizontally within the container */
+	        margin-bottom: 50px; /* Add some spacing between the video lines */
+        }
+
+        /* Style for the third video line container */
+        .video-line3 {
+                display: flex; /* Use flexbox to horizontally align the videos */
+                justify-content: center; /* Center videos horizontally within the container */
+                margin-bottom: 20px; /* Add some spacing between the video lines */
+            }
+
+        /* Style for individual video elements */
+        video {
+            width: 300px; /* Set the width of the videos as needed */
+            height: 170px; /* Set the height of the videos as needed */
+        }
+    </style>
+    <div class="container" style="background-color:#f2f2f2">
+        <h2 class="section_title">Results</h2>
+        <p class="body">We evaluated <b>ARMOUR</b> on seven Hard Scenarios, with the start pose shown in white and the goal pose shown in black. There are seven tasks in the Hard Scenarios set: 
+			(1) from inside to outside of a box, 
+			(2-3) from one side of a wall to another, 
+			(4) between two horizontal posts, 
+			(5) from a sink to a cupboard, 
+			(6) from one set of shelves to another, 
+			(7) through a small window. 
+            (Please check the following videos in Chrome, Firefox or Edge)</p>
+        <!-- <div class="video-line1">
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/cca3079f-5521-466f-8a39-42e3ee0af517" controls="true" autoplay="autoplay" loop muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/019ee45f-1060-4340-91df-5846dca922f5" controls="true" autoplay="autoplay" loop muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/5dc50113-18ca-4963-8e08-3617b69264ff" controls="true" autoplay="autoplay" loop muted playsinline>
+            </video>
+            
+        </div>
+        <div class="video-line2">
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/596628c0-df41-4148-888b-5e4f5f25849f" controls="true" autoplay="autoplay" loop muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/638a0d5e-7a45-4ba7-a3ba-8d1f2b6140a0" controls="true" autoplay="autoplay" loop muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/de3601a5-dcfa-4daf-bced-cb85bfc18c4c" controls="true" autoplay="autoplay" loop muted playsinline>
+            </video>
+        </div>	
+        <div class="video-line3">
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/642dd5c4-96fc-4031-98e5-60b12eb46fb1" controls="true" autoplay="autoplay" loop muted playsinline>
+            </video>
+        </div> -->
+        <div class="video-line1">
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/37237a53-4385-4bc5-a8a8-972ce7df8562" controls="true" muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/9dceecb1-0a16-4304-95e0-255a4b001cbb" controls="true" muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/c635494c-76d6-499f-84c7-521d4350c4e1" controls="true" muted playsinline>
+            </video>
+            
+        </div>
+        <div class="video-line2">
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/da1877cc-17a4-419c-9388-10390c7b207f" controls="true" muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/add68a50-7bd2-4d3c-84c5-a8f20a34f45e" controls="true" muted playsinline>
+            </video>
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/dfc5201c-b3ea-47b7-9adc-056b350917d5" controls="true" muted playsinline>
+            </video>
+        </div>	
+        <div class="video-line3">
+            <video src="https://github.com/roahmlab/armour-dev/assets/41474684/4c07e331-fb07-4e37-ade8-d977166f4d51" controls="true" muted playsinline>
+            </video>
+        </div>
+        <!-- <video width="320" height="180" src="https://github.com/roahmlab/armour-dev/assets/41474684/642dd5c4-96fc-4031-98e5-60b12eb46fb1" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit">
+        </video>
+        <video width="320" height="180" src="https://github.com/roahmlab/armour-dev/assets/41474684/638a0d5e-7a45-4ba7-a3ba-8d1f2b6140a0" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit">
+        </video>
+        <video width="320" height="180" src="https://github.com/roahmlab/armour-dev/assets/41474684/cca3079f-5521-466f-8a39-42e3ee0af517" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit">
+        </video>
+        <video width="320" height="180" src="https://github.com/roahmlab/armour-dev/assets/41474684/de3601a5-dcfa-4daf-bced-cb85bfc18c4c" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit">
+        </video>
+        <video width="320" height="180" src="https://github.com/roahmlab/armour-dev/assets/41474684/596628c0-df41-4148-888b-5e4f5f25849f" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit">
+        </video>
+        <video width="320" height="180" src="https://github.com/roahmlab/armour-dev/assets/41474684/5dc50113-18ca-4963-8e08-3617b69264ff" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit">
+        </video>
+        <video width="320" height="180" src="https://github.com/roahmlab/armour-dev/assets/41474684/019ee45f-1060-4340-91df-5846dca922f5" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit">
+        </video> -->
+    </div>
+
+    <!-- Citation -->
+    <div class="container" style="background-color:#f2f2f2">
+        <h2 class="section_title">Citation</h2>
+        <p class="body"> - This work is supported by the Ford Motor Company via the Ford-UM Alliance under award N022977, National Science Foundation Career Award #1751093 and by the Office of Naval Research under Award Number N00014-18-1-2575 <br>
+                         - <b>ARMOUR</b> was developed in <a href="http://www.roahmlab.com">Robotics and Optimization for Analysis of Human Motion (ROAHM) Lab</a> at University of Michigan - Ann Arbor.</p>
+        <ul class="body" style="padding-left:50pt; font-size: 12pt; line-height: 15pt;">
+            <ul style="padding-left:0"><div style="background-color:#e6e6e6;">
+                <p class="body" style="padding-left:0pt; font-size: 10pt;padding-bottom:0;text-indent:-3rem;margin-left:4rem;font-family:monospace;line-height: 1.2rem;">  @article{article, <br>
+                    author = {Michaux, Jonathan and Holmes, Patrick and Zhang, Bohao and Chen, Che and Wang, Baiyue and Sahgal, Shrey and Zhang, Tiancheng and Dey, Sidhartha and Kousik, Shreyas and Vasudevan, Ram}, <br>
+                    year = {2023}, <br>
+                    month = {01}, <br>
+                    pages = {}, <br>
+                    title = {Can't Touch This: Real-Time, Safe Motion Planning and Control for Manipulators Under Uncertainty} <br>
+                    doi={10.48550/arXiv.2301.13308}}</p>
+            </div></li>
+        </ul>
+    </div>
+</body>
+</html>
