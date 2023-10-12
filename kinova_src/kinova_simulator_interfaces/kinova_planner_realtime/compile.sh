@@ -1,0 +1,1 @@
+nvcc -o armour_main armour_main.cu NLPclass.cu CollisionChecking.cu Dynamics.cu Trajectory.cu PZsparse.cu -Xcompiler -fopenmp -std=c++14 -O2 -I/usr/local/include -I/usr/local/include/coin-or -L/usr/local/lib -L/usr/lib -lipopt -lquadmath -lstdc++ -ldl -lm -lc -lgomp
