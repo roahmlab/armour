@@ -24,7 +24,7 @@ An overview of this method is given in figure below.
 The repo has been verified on MATLAB R>=2021b and Ubuntu >= 20.04
 
 This repo depends on the following repos:
- - [CORA 2021](https://tumcps.github.io/CORA/data/CORA_2021.zip)
+ - [CORA 2021](https://tumcps.github.io/CORA/pages/archive/v2021/index.html)
  
 You need to download this repo and add to your MATLAB path.
 
