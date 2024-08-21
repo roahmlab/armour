@@ -374,12 +374,12 @@ classdef uarmtd_planner < robot_arm_generic_planner
                 end
             end
 
-            disturbance = 2 * rand - 1;
-            disturbance = 0.02 * disturbance / norm(disturbance);
-            q_0 = q_0 + disturbance;
-            disturbance = 2 * rand - 1;
-            disturbance = 0.02 * disturbance / norm(disturbance);
-            q_dot_0 = q_dot_0 + disturbance;
+            % disturbance = 2 * rand - 1;
+            % disturbance = 0.02 * disturbance / norm(disturbance);
+            % q_0 = q_0 + disturbance;
+            % disturbance = 2 * rand - 1;
+            % disturbance = 0.02 * disturbance / norm(disturbance);
+            % q_dot_0 = q_dot_0 + disturbance;
             
             % save info
             P.info.planning_time = planning_time;
