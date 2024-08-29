@@ -233,15 +233,15 @@ classdef simulator_armtd < simulator
                         % crashed
                         S.vdisp('Checking if agent reached goal or crashed...',3)
                         agent_info = A.get_agent_info() ;
-%                         goal_check = W.goal_check(agent_info) ;
-%                         input_check = A.input_check(W.current_time) ; % must come before collision_check (which updates time)
-%                         if isprop(A.LLC, 'ultimate_bound')
-%                             ultimate_bound_check = A.LLC.ultimate_bound_check(A, W.current_time);  % must come before collision_check (which updates time)
-%                         else
-%                             ultimate_bound_check = false;
-%                         end
-%                         joint_limit_check = A.joint_limit_check(W.current_time); % must come before collision_check (which updates time)
-%                         collision_check = W.collision_check(agent_info,false) ;
+                        goal_check = W.goal_check(agent_info) ;
+                        input_check = A.input_check(W.current_time) ; % must come before collision_check (which updates time)
+                        if isprop(A.LLC, 'ultimate_bound')
+                            ultimate_bound_check = A.LLC.ultimate_bound_check(A, W.current_time);  % must come before collision_check (which updates time)
+                        else
+                            ultimate_bound_check = false;
+                        end
+                        joint_limit_check = A.joint_limit_check(W.current_time); % must come before collision_check (which updates time)
+                        collision_check = W.collision_check(agent_info,false) ;
 
                         goal_check = 0;
                         input_check = 0;
