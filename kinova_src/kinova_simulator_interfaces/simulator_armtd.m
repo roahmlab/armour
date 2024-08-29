@@ -242,12 +242,6 @@ classdef simulator_armtd < simulator
                         end
                         joint_limit_check = A.joint_limit_check(W.current_time); % must come before collision_check (which updates time)
                         collision_check = W.collision_check(agent_info,false) ;
-
-                        goal_check = 0;
-                        input_check = 0;
-                        ultimate_bound_check = 0;
-                        joint_limit_check = 0;
-                        collision_check = 0;
                         
                         if isa(A,'multi_link_agent')
                             S.vdisp('Checking for self-intersection.',2)
