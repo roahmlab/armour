@@ -5,3 +5,5 @@
 *.mexa64
 *.zip
 .vscode/
+RAPTOR/build/
+RobustMovers/build/
