@@ -4,6 +4,7 @@
 *.out
 *.mexa64
 *.zip
+*.pyc
 .vscode/
 RAPTOR/build/
 RobustMovers/build/

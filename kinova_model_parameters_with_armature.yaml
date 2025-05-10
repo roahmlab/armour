@@ -1,0 +1,103 @@
+# kinova_model_parameters.yaml
+
+# Robot parameters
+name: Kinova
+
+joint_1: 
+  motor_parameters:
+    friction: 0.0
+    damping: 0.0
+    transmissionInertia: 8.03
+    offset: 0.0
+  uncertainty:
+    mass_eps: 0.05
+    com_eps: 0.05
+    inertia_eps: 0.05
+    friction_eps: 0.0
+    damping_eps: 0.0
+    transmissionInertia_eps: 0.0
+
+joint_2:
+  motor_parameters:
+    friction: 0.0
+    damping: 0.0
+    transmissionInertia: 11.9962024615303644
+    offset: 0.0
+  uncertainty:
+    mass_eps: 0.05
+    com_eps: 0.05
+    inertia_eps: 0.05
+    friction_eps: 0.0
+    damping_eps: 0.0
+    transmissionInertia_eps: 0.0
+
+joint_3:
+  motor_parameters:
+    friction: 0.0
+    damping: 0.0
+    transmissionInertia: 9.0025427861751517
+    offset: 0.0
+  uncertainty:
+    mass_eps: 0.05
+    com_eps: 0.05
+    inertia_eps: 0.05
+    friction_eps: 0.0
+    damping_eps: 0.0
+    transmissionInertia_eps: 0.0
+
+joint_4:
+  motor_parameters:
+    friction: 0.0
+    damping: 0.0
+    transmissionInertia: 11.5806439316706360
+    offset: 0.0
+  uncertainty:
+    mass_eps: 0.05
+    com_eps: 0.05
+    inertia_eps: 0.05
+    friction_eps: 0.0
+    damping_eps: 0.0
+    transmissionInertia_eps: 0.0
+  
+joint_5:
+  motor_parameters:
+    friction: 0.0
+    damping: 0.0
+    transmissionInertia: 8.4665040917914123
+    offset: 0.0
+  uncertainty:
+    mass_eps: 0.05
+    com_eps: 0.05
+    inertia_eps: 0.05
+    friction_eps: 0.0
+    damping_eps: 0.0
+    transmissionInertia_eps: 0.0
+
+joint_6:
+  motor_parameters:
+    friction: 0.0
+    damping: 0.0
+    transmissionInertia: 8.8537069373742430
+    offset: 0.0
+  uncertainty:
+    mass_eps: 0.05
+    com_eps: 0.05
+    inertia_eps: 0.05
+    friction_eps: 0.0
+    damping_eps: 0.0
+    transmissionInertia_eps: 0.0
+
+joint_7:
+  motor_parameters:
+    friction: 0.0
+    damping: 0.0
+    transmissionInertia: 8.8587303664685315
+    offset: 0.0
+  uncertainty:
+    mass_eps: 0.05
+    com_eps: 0.05
+    inertia_eps: 0.05
+    friction_eps: 0.0
+    damping_eps: 0.0
+    transmissionInertia_eps: 0.0
+
