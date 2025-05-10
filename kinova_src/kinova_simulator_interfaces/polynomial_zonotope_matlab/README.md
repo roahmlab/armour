@@ -1,1 +1,0 @@
-# polynomial_zonotope_ROAHM

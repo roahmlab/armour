@@ -1,0 +1,8 @@
+[submodule "RobustMovers"]
+    path = RobustMovers
+    url = git@github.com:roahmlab/RobustMovers.git
+    branch = main
+[submodule "RAPTOR"]
+    path = RAPTOR
+    url = https://github.com/roahmlab/RAPTOR.git
+    branch = main
