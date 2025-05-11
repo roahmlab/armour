@@ -10,9 +10,9 @@ joint_1:
     transmissionInertia: 8.03
     offset: 0.0
   uncertainty:
-    mass_eps: 0.05
-    com_eps: 0.05
-    inertia_eps: 0.05
+    mass_eps: 0.03
+    com_eps: 0.03
+    inertia_eps: 0.03
     friction_eps: 0.0
     damping_eps: 0.0
     transmissionInertia_eps: 0.0
@@ -24,9 +24,9 @@ joint_2:
     transmissionInertia: 11.9962024615303644
     offset: 0.0
   uncertainty:
-    mass_eps: 0.05
-    com_eps: 0.05
-    inertia_eps: 0.05
+    mass_eps: 0.03
+    com_eps: 0.03
+    inertia_eps: 0.03
     friction_eps: 0.0
     damping_eps: 0.0
     transmissionInertia_eps: 0.0
@@ -38,9 +38,9 @@ joint_3:
     transmissionInertia: 9.0025427861751517
     offset: 0.0
   uncertainty:
-    mass_eps: 0.05
-    com_eps: 0.05
-    inertia_eps: 0.05
+    mass_eps: 0.03
+    com_eps: 0.03
+    inertia_eps: 0.03
     friction_eps: 0.0
     damping_eps: 0.0
     transmissionInertia_eps: 0.0
@@ -52,9 +52,9 @@ joint_4:
     transmissionInertia: 11.5806439316706360
     offset: 0.0
   uncertainty:
-    mass_eps: 0.05
-    com_eps: 0.05
-    inertia_eps: 0.05
+    mass_eps: 0.03
+    com_eps: 0.03
+    inertia_eps: 0.03
     friction_eps: 0.0
     damping_eps: 0.0
     transmissionInertia_eps: 0.0
@@ -66,9 +66,9 @@ joint_5:
     transmissionInertia: 8.4665040917914123
     offset: 0.0
   uncertainty:
-    mass_eps: 0.05
-    com_eps: 0.05
-    inertia_eps: 0.05
+    mass_eps: 0.03
+    com_eps: 0.03
+    inertia_eps: 0.03
     friction_eps: 0.0
     damping_eps: 0.0
     transmissionInertia_eps: 0.0
@@ -80,9 +80,9 @@ joint_6:
     transmissionInertia: 8.8537069373742430
     offset: 0.0
   uncertainty:
-    mass_eps: 0.05
-    com_eps: 0.05
-    inertia_eps: 0.05
+    mass_eps: 0.03
+    com_eps: 0.03
+    inertia_eps: 0.03
     friction_eps: 0.0
     damping_eps: 0.0
     transmissionInertia_eps: 0.0
@@ -94,9 +94,9 @@ joint_7:
     transmissionInertia: 8.8587303664685315
     offset: 0.0
   uncertainty:
-    mass_eps: 0.05
-    com_eps: 0.05
-    inertia_eps: 0.05
+    mass_eps: 0.03
+    com_eps: 0.03
+    inertia_eps: 0.03
     friction_eps: 0.0
     damping_eps: 0.0
     transmissionInertia_eps: 0.0

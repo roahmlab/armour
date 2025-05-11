@@ -16,7 +16,7 @@ KinovaWithoutGripper:
   # ultimate bound for tracking error
   ultimate_bound:
     alpha: 20.0 # robust controller parameter
-    V_m: 0.02 # robust controller parameter
+    V_m: 0.01 # robust controller parameter
     M_max: 15.79635774 # maximum eigenvalue of the inertia mass matrix
     M_min: 8.29938 # minimum eigenvalue of the inertia mass matrix
     Kr: 5.0 # robust controller parameter

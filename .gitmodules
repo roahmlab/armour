@@ -1,8 +1,8 @@
 [submodule "RobustMovers"]
-	path = RobustMovers
-	url = https://github.com/roahmlab/RobustMovers.git
+    path = RobustMovers
+    url = https://github.com/roahmlab/RobustMovers.git
     branch = main
 [submodule "RAPTOR"]
-	path = RAPTOR
-	url = https://github.com/roahmlab/RAPTOR.git
-    branch = main
+    path = RAPTOR
+    url = https://github.com/roahmlab/RAPTOR.git
+    branch = armour_faster_but_conservative

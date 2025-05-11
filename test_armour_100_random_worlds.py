@@ -35,10 +35,10 @@ display_info = False
 planner_config_filename = "kinova_planner_parameters.yaml"
 planner = armour.ArmourPybindWrapper(urdf_filename, planner_config_filename, display_info)
 
-# Initialize the Armour controller
+# Initialize the Armour controller (make sure these are consistent with kinova_planner_parameters.yaml)
 controller_config_path = "kinova_model_parameters_with_armature.yaml"
 Kr = 5 * np.ones(model.nv)
-V_max = 0.02
+V_max = 0.01
 alpha = 20
 r_norm_threshold = 1e-12
 controller_instance = controller_armour.kinova_controller_armour_pybindwrapper(
@@ -57,6 +57,7 @@ for filename in os.listdir(dir_path):
         world_files.append(file_path)
     
 world_idx = args.world_idx
+print(world_files[world_idx])
 world_info = np.loadtxt(world_files[world_idx], delimiter=',')
 
 start = world_info[0, :7]
@@ -91,7 +92,7 @@ for i, obs in enumerate(obstacles):
 duration = 2.0 # duration of the trajectory
 t_plan = 0.5 # minimize the distance between the middle of the trajectory and the local goal
 
-lookahead_distance = np.pi/24 # distance to the local goal
+lookahead_distance = 0.2 # distance to the local goal
 
 planner.set_obstacles(obstacles)
 
@@ -100,19 +101,13 @@ planner.set_ipopt_parameters(
     1e-5,          # ipopt_tol
     1e-6,          # ipopt_constr_viol_tol
     10.0,          # ipopt_obj_scaling_factor
-    1.0,           # ipopt_max_wall_time
+    0.7,           # ipopt_max_wall_time
     0,             # ipopt_print_level
-    "adaptive",    # mu_strategy
-    "ma57",        # ipopt_linear_solver
+    "monotone",    # mu_strategy
+    "ma86",        # ipopt_linear_solver
     False          # ipopt_gradient_check
 )
 
-current_waypoint_index = 0
-lookahead_index = 20
-lookahead_index_reduced = lookahead_index
-distance_to_local_goal = 0
-previous_info = []
-trajectories = []
 waypoints = []
 solutions = []
 
@@ -120,15 +115,15 @@ positions = np.array([])
 velocities = np.array([])
 torques = np.array([])
 
+print("start", start)
+
 q0 = start
 q_d0 = np.zeros(7)
 q_dd0 = np.zeros(7)
 
 status = "not_reached"
 
-for iter in range(200):
-    print(current_waypoint_index)
-
+for iter in range(400):
     # target information
     if np.linalg.norm(goal - q0) < lookahead_distance:
         q_des = goal
@@ -185,11 +180,13 @@ for iter in range(200):
             if len(contacts) > 0:
                 status = "crashed"
                 break
-            # time.sleep(0.004)
             
         if status == "crashed":
             break
         
+        q0_prev = q0
+        q_d0_prev = q_d0
+        q_dd0_prev = q_dd0
         q0, q_d0, q_dd0 = desired_trajectory(local_duration)
         
         if positions.shape[0] == 0:
@@ -201,7 +198,39 @@ for iter in range(200):
             velocities = np.vstack((velocities, vel))
             torques = np.vstack((torques, tau))
     else:
-        raise Exception("Failed to find a feasible trajectory")
+        q_next = q0_prev + k_center + solutions[-1] * k_range
+        
+        def desired_trajectory(t):
+            return armour_Bezier_trajectory(q0_prev, q_d0_prev, q_dd0_prev, q_next, t, duration)
+        
+        ts_sim = np.linspace(0.5 * duration, duration, 1000)
+        try:
+            pos, vel, tau = integrate(model, ts_sim, np.concatenate([q0, q_d0]), desired_trajectory, controller)
+        except Exception as e:
+            status = 'torque limit exceeded'
+            break
+        
+        # visualize the trajectory and check collision in pybullet
+        for q in pos:
+            set_position(robot, q)
+            contacts = p.getContactPoints()
+            if len(contacts) > 0:
+                status = "crashed"
+                break
+            
+        if status == "crashed":
+            break
+        
+        q0, q_d0, q_dd0 = desired_trajectory(duration)
+        
+        if positions.shape[0] == 0:
+            positions = pos
+            velocities = vel
+            torques = tau
+        else:
+            positions = np.vstack((positions, pos))
+            velocities = np.vstack((velocities, vel))
+            torques = np.vstack((torques, tau))
 
     if goal_distance(q0 - goal) < 0.05:
         print("Goal reached")
@@ -210,8 +239,6 @@ for iter in range(200):
     else:
         print(np.linalg.norm(q0 - goal))
         print(np.linalg.norm(q0 - q_des))
-        
-    distance_to_local_goal = goal_distance(q_des - q0)
 
 sio.savemat(f'results/armour_trajectories_{world_idx}.mat', 
             {'status': status,

@@ -232,15 +232,9 @@ def armour_Bezier_trajectory(q0, q_d0, q_dd0, q1, t, T):
     ddB = Bionomials * (ddtA * tB + 2 * dtA * dtB + tA * ddtB) / (T * T)
     
     # Compute position, velocity, and acceleration
-    q = np.zeros(Nact)
-    q_d = np.zeros(Nact)
-    q_dd = np.zeros(Nact)
-    
-    # Compute the trajectory values using the Bezier formula
-    for i in range(Nact):
-        q[i] = np.sum(coefficients[:, i] * B)
-        q_d[i] = np.sum(coefficients[:, i] * dB)
-        q_dd[i] = np.sum(coefficients[:, i] * ddB)
+    q = coefficients.T @ B
+    q_d = coefficients.T @ dB  
+    q_dd = coefficients.T @ ddB
     
     return q, q_d, q_dd
 
