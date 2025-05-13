@@ -62,7 +62,7 @@ Download `eigen-3.3.7` by following [this link](https://gitlab.com/libeigen/eige
      sudo make
      sudo make install
  
-#### Install Ipopt and HSL (TODO: Maybe add more introduction, but will be fairly long)
+#### Install Ipopt and HSL
 libipopt and libcoinhsl could be very annoying to install and to work with MATLAB. 
 Suppose libipopt and libcoinhsl are both installed in /usr/local/lib.
 You need to add that path to both user's environmental variable 'LD_LIBRARY_PATH' and MATLAB's environment variable 'LD_LIBRARY_PATH'
